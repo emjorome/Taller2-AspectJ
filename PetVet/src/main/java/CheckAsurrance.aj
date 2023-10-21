@@ -2,27 +2,18 @@ import main.PetStore;
 import main.User;
 
 public aspect CheckAsurrance {
-    // Define a Pointcut is
-    // collection of JoinPoint 
-	// call say* of class HelloAspectJDemo.
 	
-	//pointcut verifyAssurance():execution(void PetStore.makeAppointment(..));
-	
-	
-	poincut verifyAssurance() :
-		call(void makeAppointment);
+	static pointcut verifyAssurance():execution(void PetStore.makeAppointment(..));
 	
 	before() : verifyAssurance(){
-		String validar = readConsole("Name of your pet :");
-        for(User usuarios:users) {
-        	if (usuarios.getPetName().equals(validar)) {
-        		System.out.println("Bienvenido," + usuarios.getPetOwner());     
-        	}
-        }
+		System.out.println("Verify Assurance...");
 	}
-
-    after(): verifyAssurance() {
+	static pointcut verify():execution(void PetStore.makeAppointment(..));
+    after(): verify() {
     	System.out.println("La cita fue agendada exitosamente"); 
     }
 }
+
+
+
 

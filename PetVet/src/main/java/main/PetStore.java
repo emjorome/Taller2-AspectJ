@@ -36,20 +36,15 @@ public class PetStore {
         break;
         case 2:
             System.out.println("Make appointment");
-            
-            
-         
-            String validar = readConsole("Name of your pet :");
+            //System.out.println("Verify Assurance");
+    		String validar = readConsole("Name of your pet :");
             for(User usuarios:users) {
             	if (usuarios.getPetName().equals(validar)) {
-            		System.out.println("Bienvenido," + usuarios.getPetOwner());
-            		makeAppointment(); 
-             
+            		System.out.println("Bienvenido," + usuarios.getPetOwner()); 
+            		makeAppointment();
             	}
-            	
-            	
             }
-           
+          
         break;
         case 3:
             System.out.println("Update status");
@@ -83,6 +78,7 @@ public class PetStore {
     	int id = Integer.valueOf(readConsole("Id:"));
     	String date = readConsole("Date: ");
         users.get(id-1).setAppointment(date);
+        //System.out.println("La cita fue agendada exitosamente"); 
     }
     
     public static void UpdateLevel(){
@@ -90,6 +86,7 @@ public class PetStore {
         String assurance = readConsole("Membership level: ");
         users.get(id-1).setLevelAssurance(assurance);
     }
+    
 
 
 }
