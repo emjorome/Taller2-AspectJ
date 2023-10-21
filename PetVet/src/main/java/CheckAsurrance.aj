@@ -1,4 +1,4 @@
-import main.String;
+import main.PetStore;
 import main.User;
 
 public aspect CheckAsurrance {
@@ -6,7 +6,11 @@ public aspect CheckAsurrance {
     // collection of JoinPoint 
 	// call say* of class HelloAspectJDemo.
 	
-	pointcut verifyAssurance():execution(void PetStore.makeAppointment(..));
+	//pointcut verifyAssurance():execution(void PetStore.makeAppointment(..));
+	
+	
+	poincut verifyAssurance() :
+		call(void makeAppointment);
 	
 	before() : verifyAssurance(){
 		String validar = readConsole("Name of your pet :");
@@ -17,7 +21,7 @@ public aspect CheckAsurrance {
         }
 	}
 
-    after() verifyAssurance() {
+    after(): verifyAssurance() {
     	System.out.println("La cita fue agendada exitosamente"); 
     }
 }
