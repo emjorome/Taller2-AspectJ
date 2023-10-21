@@ -36,6 +36,9 @@ public class PetStore {
         break;
         case 2:
             System.out.println("Make appointment");
+            
+            
+         
             String validar = readConsole("Name of your pet :");
             for(User usuarios:users) {
             	if (usuarios.getPetName().equals(validar)) {
